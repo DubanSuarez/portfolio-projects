@@ -509,7 +509,7 @@
      .TarjetaInfo {
          flex-direction: column;
          min-width: 100%;
-         padding: 20px 10px;
+         padding: 10px 5px;
      }
 
      .Informacion {
@@ -518,6 +518,12 @@
 
      .FotoInfo img {
          display: none;
+     }
+
+     .IconosHerramientas {
+         width: 100%;
+         padding: 0px 0px;
+         justify-content: center;
      }
 
      .Skills {
