@@ -5,6 +5,7 @@
      box-sizing: border-box;
  }
 
+
  body {
      background-color: #2e2e2e;
      font-family: 'Inter', sans-serif;
@@ -101,6 +102,10 @@
      /* Centra horizontalmente */
  }
 
+ .nav-links.active {
+     display: flex;
+ }
+
  .IconoLogo {
      width: 40px;
      height: 40px;
@@ -152,67 +157,36 @@
      cursor: pointer;
  }
 
+
+
  @media (max-width: 768px) {
 
      nav {
-         width: auto;
+         width: 100%;
+         padding: 10px 15px;
+         /* antes era 40px */
+         box-sizing: border-box;
      }
 
-
      .nav-links {
-         padding: 15x;
+         padding: 15px;
+         /* aquí tenías un error: 15x */
          display: none;
-         /* Ocultar menú por defecto en móviles */
          flex-direction: column;
          gap: 0;
-         /* elimina el espacio entre elementos */
          background: #2e2e2e;
          position: absolute;
          top: 60px;
          right: 0;
          width: 100%;
          z-index: 1;
-         /* encima de la imagen */
-
-         /* Para que quede encima del contenido */
-         box-shadow: -1px 5px 13px -3px rgba(0, 0, 0, 0.75);
-         -webkit-box-shadow: -1px 5px 13px -3px rgba(0, 0, 0, 0.75);
-         -moz-box-shadow: -1px 5px 13px -3px rgba(0, 0, 0, 0.75);
-     }
-
-     .nav-links.active {
-         display: flex;
-         /* Mostrar menú cuando tenga la clase active */
      }
 
      .hamburger {
          display: block;
-         /* Mostrar hamburguesa en móviles */
      }
-
-
-     .nav-links li {
-         margin: 0;
-         /* elimina espacio entre los li */
-         padding: 5px;
-     }
-
-     .nav-links a {
-         display: block;
-         gap: 0px;
-         /* Hace que el enlace ocupe todo el ancho */
-         padding: 12px 25px;
-         border-radius: 8px;
-         text-decoration: none;
-         /* Quita subrayado */
-     }
-
-     .nav-links a:hover {
-         border-radius: 8px;
-         background-color: #1c1c1c;
-     }
-
  }
+
 
 
 
@@ -415,17 +389,22 @@
          z-index: -1;
      }
 
+     .TituloSeccion,
+     .TituloSeccion2 {
+         min-width: 100%;
+         max-width: 100%;
+         padding: 40px 10px 30px 10px;
+         /* más compacto en móvil */
+     }
+
      .TituloSeccion {
-         justify-content: left;
-         align-items: center;
+         justify-content: center;
      }
 
      .TituloSeccion2 {
-         display: flex;
-         flex-direction: row-reverse;
-         /* Invierte el orden */
-         justify-content: left;
-         align-items: center;
+         flex-direction: column;
+         text-align: center;
+         gap: 10px;
      }
 
      .Flechas {
@@ -435,10 +414,12 @@
      .Flecha2 {
          display: none;
      }
+
+     .Caras {
+         flex-shrink: 0;
+     }
+
  }
-
-
-
 
 
 
@@ -521,17 +502,24 @@
  /* Responsive para pantallas pequeñas */
  @media (max-width: 768px) {
 
+     .AboutMe {
+         min-width: 100%;
+     }
+
+     .TarjetaInfo {
+         flex-direction: column;
+         min-width: 100%;
+         padding: 20px 10px;
+     }
+
      .Informacion {
-         max-width: none;
-         min-width: 350px;
-         width: 100%;
+         min-width: 100%;
      }
 
      .FotoInfo img {
          display: none;
      }
  }
-
 
 
  /*    Portafolio     */
@@ -647,6 +635,29 @@
      background: #99bd08;
  }
 
+ @media (max-width: 768px) {
+
+     .Portfolio {
+         min-width: 100%;
+         padding: 10px;
+     }
+
+     .TarjetaProyecto {
+         width: 100%;
+         max-width: 100%;
+     }
+
+     .BotonVerProyecto {
+         flex-direction: column;
+         align-items: center;
+         gap: 10px;
+     }
+
+     .BtnVer {
+         width: 100%;
+         justify-content: center;
+     }
+ }
 
 
 
@@ -1081,181 +1092,33 @@
  }
 
  @media (max-width: 768px) {
+
      .InfoFooter {
-         gap: 10px;
+         min-width: 100%;
+         flex-direction: column;
+         text-align: center;
+         padding: 20px 10px;
      }
- }
 
+     .MenuFooter {
+         min-width: 100%;
+         justify-content: center;
+     }
 
+     .MenuFooter ul {
+         flex-direction: column;
+         gap: 12px;
+         padding: 0;
+     }
 
- /* ----- Modal ------ */
+     .IconosRedesSociales {
+         max-width: 100%;
+         flex-wrap: wrap;
+         gap: 15px;
+     }
 
-
- /* Fondo oscuro a pantalla completa */
- .modal {
-     position: fixed;
-     inset: 0;
-     /* top/right/bottom/left: 0 */
-     display: none;
-     /* oculto por defecto */
-     align-items: center;
-     /* centrado vertical */
-     justify-content: center;
-     /* centrado horizontal */
-     background: rgba(0, 0, 0, .5);
-     z-index: 9999;
-     padding: 16px;
-     /* margen interno para pantallas pequeñas */
- }
-
- .modal.abierto {
-     display: flex;
- }
-
- /* clase que muestra el modal */
-
- /* Caja del modal */
- .modal-contenido {
-     position: relative;
-     background: #1b1e25;
-     max-width: 1040px;
-     min-width: 400px;
-     max-height: 85vh;
-     width: 100%;
-     height: auto;
-     overflow: auto;
-     /* scroll interno si el contenido es alto */
-     border-radius: 12px;
-     padding: 5px;
-     box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
-
-     margin: 5% auto;
- }
-
- /* Botón de cierre */
- .cerrar {
-     color: white;
-     position: absolute;
-     top: 10px;
-     right: 12px;
-     border: 0;
-     background: transparent;
-     font-size: 24px;
-     line-height: 1;
-     cursor: pointer;
- }
-
-
- body.modal-abierto {
-     overflow: hidden;
-     padding-right: var(--scrollbar-width, 0px);
- }
-
-
- /*  Diseño Modal  */
-
- .ContenedorModal {
-     border: 1px solid black;
-     color: white;
-     width: 100%;
-     height: auto;
-     padding: 10px;
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     flex-wrap: wrap;
-     gap: 15px;
- }
-
- .Mockup {
-     border: 1px solid black;
-     max-width: 440px;
-     min-width: 380px;
-     width: 100%;
-     height: auto;
-     padding: 15px 10px;
-
-     background-image: url(../Img/Proyecto1.jpg);
-     background-repeat: no-repeat;
-     background-size: cover;
-
-     display: flex;
-     gap: 15px;
- }
-
- .InformacionPoryecto {
-     border: 1px solid black;
-     max-width: 440px;
-     min-height: 380px;
-     width: 100%;
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     /* Manda los hijos a los extremos */
-     align-items: center;
-     /* Opcional: centra verticalmente */
-     gap: 10px;
- }
-
- .HerramientasProyecto {
-     border: 1px solid black;
-     background-color: #131419;
-     width: 100%;
-     padding: 10px;
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     gap: 10px;
- }
-
-
- /* Botones Modal */
-
-
- .BotonModal {
-     border: 1px solid black;
-     width: 100%;
-     padding: 10px;
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     gap: 10px;
-     justify-content: center;
- }
-
- .btn {
-     display: inline-flex;
-     align-items: center;
-     justify-content: center;
-     padding: 8px 14px;
-     border-radius: 6px;
-     font-size: 14px;
-     font-weight: bold;
-     text-decoration: none;
-     color: white;
-     transition: transform 0.2s ease, opacity 0.2s ease;
- }
-
- .btn:hover {
-     transform: scale(1.05);
-     opacity: 0.9;
- }
-
- /* Botón azul Behance */
- .btn-behance {
-     background-color: #0057ff;
- }
-
- /* Botón verde Deploy */
- .btn-deploy {
-     background-color: #94b70d;
-     display: flex;
-     gap: 5px;
- }
-
-
- @media (max-width: 768px) {
-     .Mockup {
-         height: 250px;
+     .derechosdeautor {
+         font-size: 12px;
+         text-align: center;
      }
  }

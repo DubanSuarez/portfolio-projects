@@ -128,11 +128,11 @@
                 </div>
 
                 <div class="BotonVerProyecto">
-                    <a href="#" class="BtnVer ColorBoton1" id="abrirModal">
+                    <a href="#" class="BtnVer ColorBoton1">
                         <i class="fa-brands fa-behance IconoCV"></i>
                         Behance
                     </a>
-                    <a href="#" class="BtnVer ColorBoton2" id="abrirModal">
+                    <a href="#" class="BtnVer ColorBoton2">
                         <i class="fa-solid fa-link IconoCV"></i>
                         See Deploy
                     </a>
@@ -163,11 +163,11 @@
                 </div>
 
                 <div class="BotonVerProyecto">
-                    <a href="#" class="BtnVer ColorBoton1" id="abrirModal">
+                    <a href="#" class="BtnVer ColorBoton1">
                         <i class="fa-brands fa-behance IconoCV"></i>
                         Behance
                     </a>
-                    <a href="#" class="BtnVer ColorBoton2" id="abrirModal">
+                    <a href="#" class="BtnVer ColorBoton2">
                         <i class="fa-solid fa-link IconoCV"></i>
                         See Deploy
                     </a>
@@ -327,78 +327,13 @@
         });
     </script>
 
-
-
     <script>
-        // Pega esto tal cual (ideal al final del <body>)
         document.addEventListener('DOMContentLoaded', () => {
-            const abrir = document.getElementById('abrirModal');
-            const modal = document.getElementById('miModal');
-            if (!abrir || !modal) {
-                // Si no encuentra elementos, no bloquea nada
-                console.warn('No se encontró #abrirModal o #miModal. Revisa los IDs en tu HTML.');
-                return;
-            }
-            const cerrar = modal.querySelector('.cerrar');
-
-            function setBodyLock(lock) {
-                if (lock) {
-                    // Compensa el ancho del scrollbar para que no “salte” el layout
-                    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-                    document.body.style.setProperty('--scrollbar-width', scrollBarWidth + 'px');
-                    document.body.classList.add('modal-abierto');
-                } else {
-                    document.body.classList.remove('modal-abierto');
-                    document.body.style.removeProperty('--scrollbar-width');
-                }
-            }
-
-            function abrirModal(e) {
-                if (e) e.preventDefault();
-                // Primero mostramos el modal; si falla, no bloqueamos el body
-                modal.style.display = 'block';
-                // Luego bloqueamos scroll (compensado)
-                setBodyLock(true);
-            }
-
-            function cerrarModal() {
-                setBodyLock(false);
-                modal.style.display = 'none';
-            }
-
-            // Eventos
-            abrir.addEventListener('click', abrirModal);
-
-            if (cerrar) {
-                cerrar.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    cerrarModal();
-                });
-            }
-
-            // Clic fuera del contenido => cierra
-            modal.addEventListener('click', (e) => {
-                // Solo cierra si el clic fue en el overlay (fondo oscuro), no dentro de la caja
-                if (e.target === modal) cerrarModal();
-            });
-
-            // Esc para cerrar
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modal.style.display === 'block') cerrarModal();
-            });
-        });
-
-
-    </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const botones = document.querySelectorAll(".BtnVer");
+            const botones = document.querySelectorAll('.BtnVer');
 
             botones.forEach(boton => {
-                boton.addEventListener("click", (e) => {
-                    e.preventDefault(); // evita que recargue o abra enlaces
+                boton.addEventListener('click', (e) => {
+                    e.preventDefault();
                     alert("Aún no se ha subido el proyecto. ¡Muy pronto disponible!");
                 });
             });
