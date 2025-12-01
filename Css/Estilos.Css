@@ -402,7 +402,7 @@
      }
 
      .TituloSeccion2 {
-         flex-direction: column;
+         flex-direction: row;
          text-align: center;
          gap: 10px;
      }
@@ -922,6 +922,57 @@
          /* Si está en flex, que crezca */
      }
 
+     .DatosContactanos h2 {
+         font-size: 32px;
+     }
+
+
+
+
+
+     .input-group {
+         min-width: 250px;
+         width: 100%;
+     }
+
+     .IconosFormulario {
+         width: 24px;
+         height: 24px;
+         margin-right: 10px;
+     }
+
+     .IconosFormulario1 {
+         font-size: 24px;
+         margin-right: 10px;
+     }
+
+     .IconosFormularioUser {
+         width: 28px;
+         height: 28px;
+         margin-right: 10px;
+     }
+
+     input,
+     textarea {
+         border: none;
+         outline: none;
+         background: transparent;
+         flex: 1;
+         font-size: 16px;
+         font-weight: 500;
+     }
+
+     .contenedor-textarea {
+         min-width: 300px;
+         width: 100%;
+         height: 82px;
+     }
+
+     .Formulario button {
+         min-width: 250px;
+         height: 50px;
+     }
+
      .FinguraPincelazo {
          display: none;
      }
@@ -1106,7 +1157,7 @@
      }
 
      .MenuFooter ul {
-         flex-direction: column;
+         flex-direction: row;
          gap: 12px;
          padding: 0;
      }
