@@ -24,8 +24,9 @@ Este repositorio contiene soluciones prácticas y académicas que integran:
 
 Cada proyecto incluido en este portafolio aborda problemáticas reales, aplicando buenas prácticas de desarrollo, diseño y estructuración de software.
 
-## 👨‍💻 Autor
+<img width="1440" height="2866" alt="Este" src="https://github.com/user-attachments/assets/38b15e2e-c5d1-4f5c-8f9d-9ff314205735" />
+
+## Autor
 
 Duban Esteban Suárez  
 Estudiante de Ingeniería de Sistemas
-
